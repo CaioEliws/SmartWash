@@ -15,10 +15,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         val registerText = findViewById<View>(R.id.registerText) // Pegue o TextView que mostra "Registrar-se"
+        val loginButton = findViewById<View>(R.id.loginButton)
 
         registerText.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
+        }
+
+        loginButton.setOnClickListener {
+            // TODO: Add your login validation here
+            // For now, assume login is always successful
+            val intent = Intent(this, ScheduleServiceActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

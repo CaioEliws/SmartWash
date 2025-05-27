@@ -27,6 +27,11 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="true" />
+
+        <!-- Schedule Service Activity -->
+        <activity
+            android:name=".ScheduleServiceActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
