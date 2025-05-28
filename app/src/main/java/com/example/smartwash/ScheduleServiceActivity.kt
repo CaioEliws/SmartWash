@@ -16,6 +16,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
 import okhttp3.MediaType.Companion.toMediaType
+import android.util.Log
 
 class ScheduleServiceActivity : AppCompatActivity() {
     private lateinit var serviceSpinner: Spinner
@@ -30,7 +31,7 @@ class ScheduleServiceActivity : AppCompatActivity() {
     private var selectedTime: Calendar? = null
 
     private val client = OkHttpClient()
-    private val mockToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzbWFydHdhc2giLCJzdWIiOiJlZHVhcmRvMkBnbWFpbC5jb20iLCJleHAiOjE3NDgzOTQ2MTZ9.b6EF11jqawYAV3JLbdaRG_sETSVw_JPzYm8DUspvFdk"
+    private val mockToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzbWFydHdhc2giLCJzdWIiOiJlZHVhcmRvMkBnbWFpbC5jb20iLCJleHAiOjE3NDg0NzgzNDB9.DDDnbxiOQo4VavKy_pQidBjoBEhbADRjsrrsgG5JSqE"
     private val mockMachineId = "3b530fc9-ec43-4670-85d6-455926c41683"
 
     private var serviceList: List<Service> = emptyList()
@@ -140,6 +141,7 @@ class ScheduleServiceActivity : AppCompatActivity() {
                     }
                 }
             } catch (e: Exception) {
+                Log.e("ScheduleService", "Erro de conexão", e)
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@ScheduleServiceActivity, "Erro de conexão", Toast.LENGTH_SHORT).show()
                 }
@@ -196,6 +198,7 @@ class ScheduleServiceActivity : AppCompatActivity() {
                     }
                 }
             } catch (e: Exception) {
+                Log.e("ScheduleService", "Erro de conexão", e)
                 withContext(Dispatchers.Main) {
                     availableHours = emptyList()
                     timeButton.isEnabled = false
@@ -233,6 +236,7 @@ class ScheduleServiceActivity : AppCompatActivity() {
                     }
                 }
             } catch (e: Exception) {
+                Log.e("ScheduleService", "Erro de conexão", e)
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@ScheduleServiceActivity, "Erro de conexão ao agendar", Toast.LENGTH_SHORT).show()
                 }
